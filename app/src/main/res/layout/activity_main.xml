@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/llRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="right"
+            android:layout_margin="15dp"
+            android:src="@mipmap/ic_launcher"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tvSteps"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_margin="15dp"
+                android:autoSizeMaxTextSize="40sp"
+                android:autoSizeMinTextSize="14sp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/rounded_back"
+                android:gravity="center"
+                android:text="@string/_0"
+                android:textColor="#fff"
+                android:textSize="50sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvHeader"
+                app:layout_constraintEnd_toEndOf="@+id/tvHeader"
+                app:layout_constraintStart_toStartOf="@+id/tvHeader"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/pt_dusky"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/steps_num"
+                android:textColor="#93683F"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSteps"
+                app:layout_constraintEnd_toEndOf="@+id/tvSteps"
+                app:layout_constraintStart_toStartOf="@+id/tvSteps"
+                app:srcCompat="@drawable/ic_run" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvCals"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="right"
+                android:layout_marginBottom="12dp"
+                android:autoSizeMaxTextSize="40sp"
+                android:autoSizeMinTextSize="14sp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/rounded_back"
+                android:gravity="center"
+                android:text="@string/_0"
+                android:textColor="#fff"
+                android:textSize="50sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvHeader2"
+                app:layout_constraintEnd_toEndOf="@+id/tvHeader2"
+                app:layout_constraintHorizontal_bias="0.559"
+                app:layout_constraintStart_toStartOf="@+id/tvHeader2" />
+
+            <TextView
+                android:id="@+id/tvHeader2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+
+                android:fontFamily="@font/pt_dusky"
+                android:padding="10dp"
+                android:text="عدد السعرات الحرارية"
+                android:textColor="#93683F"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCals"
+                app:layout_constraintEnd_toEndOf="@+id/tvCals"
+                app:layout_constraintStart_toStartOf="@+id/tvCals"
+                app:srcCompat="@drawable/ic_fire" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#93683F"
+            android:fontFamily="@font/pt_dusky"
+            android:text="@string/double_cal"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:cornerRadius="33dp" />
+
+
+    </LinearLayout>
+</ScrollView>

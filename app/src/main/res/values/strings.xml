@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">رشاقة</string>
+
+    <string name="start_pedometer">Start Pedometer</string>
+    <string name="stop_pedometer">Stop Pedometer</string>
+    <string name="_0">0</string>
+    <string name="steps_num">عدد خطوات اليوم</string>
+    <string name="double_cal">ضاعف معدل الحرق</string>
+    <string name="order_now">اطلب كورس التخسيس الان</string>
+
+    <string name="course">احصل الان على كورس التخسيس ب250ج بدلا من 300ج\nجوري GORY كبسولة شقية لسد الشهية\nريجفي REGI-V كبسولة مضاعفة لحرق الدهون\nلمعلومات اكثر اتصل بنا</string>
+    <string name="_250_300_gori">إحصل الان على كورس التخسيس بسعر 250 جنيه بدلا من 300 جنيه</string>
+</resources>
