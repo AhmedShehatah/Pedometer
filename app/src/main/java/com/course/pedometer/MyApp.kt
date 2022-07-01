@@ -1,10 +1,9 @@
 package com.course.pedometer
 
-import android.app.Application
-import android.app.NotificationChannel
-import android.app.NotificationManager
+import android.app.*
 import android.content.Context
-import android.os.Build
+import android.content.Intent
+import java.util.*
 
 class MyApp : Application() {
 
@@ -13,24 +12,36 @@ class MyApp : Application() {
         super.onCreate()
         appContext = applicationContext
         createNotificationChannel()
+        startTimer()
     }
 
     private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            val serviceChannel = NotificationChannel(
-                channelId,
-                "Number of steps: ",
-                NotificationManager.IMPORTANCE_DEFAULT
-            )
-            val manager =
-                getSystemService(NotificationManager::class.java)
-            manager.createNotificationChannel(serviceChannel)
-        }
+        val serviceChannel = NotificationChannel(
+            channelId,
+            "Number of steps: ",
+            NotificationManager.IMPORTANCE_DEFAULT
+        )
+        val manager =
+            getSystemService(NotificationManager::class.java)
+        manager.createNotificationChannel(serviceChannel)
 
+    }
+
+    private fun startTimer() {
+        val intent = Intent(this, TimerService::class.java)
+        val pendingIntent = PendingIntent.getService(this, 100, intent, 0)
+        val alarm = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarm.setRepeating(
+            AlarmManager.RTC_WAKEUP,
+            Calendar.getInstance().timeInMillis,
+            60 * 1000,
+            pendingIntent
+        )
     }
 
     companion object {
         lateinit var appContext: Context
+        const val steps = "steps"
     }
 }

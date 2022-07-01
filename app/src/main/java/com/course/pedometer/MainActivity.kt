@@ -8,9 +8,7 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.work.*
 import com.course.pedometer.databinding.ActivityMainBinding
-import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
     private var simpleStepDetector: StepDetector? = null
@@ -25,24 +23,20 @@ class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
         setContentView(binding.root)
         binding.llRoot.background.alpha = 80
 
+
         // Get an instance of the SensorManager
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         simpleStepDetector = StepDetector()
         simpleStepDetector!!.registerListener(this)
 
-        numSteps = PedometerSharedPreferences().getInt("steps", 0)
+        numSteps = PedometerSharedPreferences().getInt(MyApp.steps, 0)
         binding.tvSteps.text = numSteps.toString()
-        binding.tvCals.text = (numSteps / 15.3).toInt().toString()
-
-
+        binding.tvCals.text = (numSteps / 19.3).toInt().toString()
         sensorManager!!.registerListener(
             this,
             sensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
             SensorManager.SENSOR_DELAY_FASTEST
         )
-
-        myWorkManager()
-
         startService()
         binding.btnStart.setOnClickListener {
             startActivity(Intent(this, CourseActivity::class.java))
@@ -51,6 +45,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
     }
+
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (event!!.sensor.type == Sensor.TYPE_ACCELEROMETER) {
@@ -64,33 +59,18 @@ class MainActivity : AppCompatActivity(), SensorEventListener, StepListener {
     }
 
     override fun step(timeNs: Long) {
-        numSteps++
+        numSteps = PedometerSharedPreferences().getInt(MyApp.steps, 0)
+
         binding.tvSteps.text = numSteps.toString()
-        binding.tvCals.text = (numSteps / 15.3).toInt().toString()
-        PedometerSharedPreferences().setInt("steps", numSteps)
+        binding.tvCals.text = (numSteps / 19.3).toInt().toString()
+        PedometerSharedPreferences().setInt(MyApp.steps, numSteps)
     }
 
-    private fun myWorkManager() {
-        val constraints = Constraints.Builder().setRequiresCharging(false)
-            .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
-            .setRequiresBatteryNotLow(false)
-            .build()
-        val myRequest = PeriodicWorkRequest.Builder(
-            MyWorker::class.java,
-            24,
-            TimeUnit.HOURS
-
-        ).setConstraints(constraints).build()
-        WorkManager.getInstance(this)
-            .enqueueUniquePeriodicWork("my_id", ExistingPeriodicWorkPolicy.KEEP, myRequest)
-
-
-    }
 
     private fun startService() {
-        val intent = Intent(this, Service::class.java)
-        intent.putExtra("steps", numSteps)
+        val intent = Intent(this, NotificationService::class.java)
         startService(intent)
     }
+
 
 }

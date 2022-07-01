@@ -4,7 +4,7 @@
     <string name="start_pedometer">Start Pedometer</string>
     <string name="stop_pedometer">Stop Pedometer</string>
     <string name="_0">0</string>
-    <string name="steps_num">عدد خطوات اليوم</string>
+    <string name="steps_num">عدد الخطوات والحركات اليوم</string>
     <string name="double_cal">ضاعف معدل الحرق</string>
     <string name="order_now">اطلب كورس التخسيس الان</string>
 

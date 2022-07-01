@@ -1,8 +1,6 @@
 package com.course.pedometer
 
-/**
- * Created by Govind on 05/25/2018.
- */
+
 class SensorFilter {
 
     fun sum(array: FloatArray): Float {

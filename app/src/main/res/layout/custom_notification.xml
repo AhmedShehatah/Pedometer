@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:weightSum="8">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        style="@style/TextAppearance.Compat.Notification.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:src="@drawable/ic_baseline_directions_run_24"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRun"
+        app:layout_constraintEnd_toStartOf="@+id/tvRun"
+        app:layout_constraintTop_toTopOf="@+id/tvRun" />
+
+    <TextView
+        android:id="@+id/tvRunNot"
+        style="@style/TextAppearance.Compat.Notification.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="3"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rvCals"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        style="@style/TextAppearance.Compat.Notification.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/ic_fire_black"
+        app:layout_constraintBottom_toBottomOf="@+id/rvCals"
+        app:layout_constraintEnd_toStartOf="@+id/rvCals"
+        app:layout_constraintTop_toTopOf="@+id/rvCals" />
+
+    <TextView
+        android:id="@+id/tvCalsNot"
+        style="@style/TextAppearance.Compat.Notification.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="3"
+        android:text="TextView" />
+
+</LinearLayout>

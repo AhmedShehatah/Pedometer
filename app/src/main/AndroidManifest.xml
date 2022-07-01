@@ -23,7 +23,11 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.course.pedometer.Service" />
+        <service
+            android:name="com.course.pedometer.NotificationService"
+            android:enabled="true" />
+
+        <service android:name=".TimerService" />
     </application>
 
 </manifest>

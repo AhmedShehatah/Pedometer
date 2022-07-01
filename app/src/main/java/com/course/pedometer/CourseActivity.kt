@@ -18,7 +18,7 @@ class CourseActivity : AppCompatActivity() {
         setContentView(binding.root)
         val (firstSen, secondSen) = listOf("جوري", "كبسولة شقية لسد الشهية")
         val next = "<font color='#3F51B5'>GORI</font>"
-        val (thSen, forthSen) = listOf("ريجفي", "سبولة مضافة لحرق الدهون ")
+        val (thSen, forthSen) = listOf("ريجفي", "كبسولة مضاعفة لحرق الدهون")
         val second = "<font color='#F44336'>REGI-V</font>"
         binding.tvDrugsNames.text =
             Html.fromHtml("$firstSen $next $secondSen<br/>$thSen $second $forthSen")
